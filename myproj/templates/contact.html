@@ -1,0 +1,63 @@
+{% extends "base.html" %} 
+{% block title %}Contact us{% endblock title %} 
+
+{% block body %}
+
+<div class="form-container">
+    <h2>Contact Us</h2>
+    <form action="/contact" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Enter your name" required />
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <input type="phone" name="phone" placeholder="Enter your phone" required />
+        <textarea name="desc" placeholder="Enter your message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<style>
+    /* Simple wrapper to center the form */
+    .form-container {
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 20px;
+        font-family: sans-serif;
+    }
+
+    /* Stack inputs vertically */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Basic styling for inputs and textarea */
+    input, textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    textarea {
+        height: 100px;
+        resize: vertical;
+    }
+
+    /* Make the button stand out a bit */
+    button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% endblock body %}
